@@ -1,0 +1,405 @@
+/* ===== Variables: paleta mezclada Blessd (azul/urbano) + Fresas La Crespa (rojo/rosa/dulce) ===== */
+:root {
+  --azul-oscuro: #0b1b3f;
+  --azul-blessd: #1e40d6;
+  --azul-neon: #4fd1ff;
+  --rojo-fresa: #e63950;
+  --rosa-crema: #ffd1dc;
+  --crema: #fff8f1;
+  --blanco: #ffffff;
+  --texto-oscuro: #1a1a1a;
+
+  --fuente-urbana: 'Anton', sans-serif;
+  --fuente-suave: 'Poppins', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--fuente-suave);
+  color: var(--texto-oscuro);
+  background-color: var(--crema);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.contenedor {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Botones: la pastilla degradada es el "sello" visual de la mezcla de marcas */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  border-radius: 50px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn--nav {
+  background: linear-gradient(90deg, var(--azul-blessd), var(--rojo-fresa));
+  color: var(--blanco);
+  font-size: 0.9rem;
+}
+
+.btn--urbano {
+  background: transparent;
+  color: var(--blanco);
+  border: 2px solid var(--azul-neon);
+  box-shadow: 0 0 15px rgba(79, 209, 255, 0.4);
+}
+
+.btn--dulce {
+  background: var(--rojo-fresa);
+  color: var(--blanco);
+}
+
+.btn--producto {
+  width: 100%;
+  background: var(--rosa-crema);
+  color: var(--rojo-fresa);
+  margin-top: 1rem;
+}
+
+.btn--producto:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* ===== Header ===== */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 248, 241, 0.92);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.header__contenido {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 1.1rem;
+}
+
+.logo__fresas {
+  font-weight: 700;
+  color: var(--rojo-fresa);
+  font-style: italic;
+}
+
+.logo__x {
+  color: #999;
+  font-size: 0.9rem;
+}
+
+.logo__blessd {
+  font-family: var(--fuente-urbana);
+  color: var(--azul-blessd);
+  letter-spacing: 1px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav__lista {
+  display: flex;
+  gap: 1.8rem;
+}
+
+.nav__link {
+  font-weight: 500;
+  position: relative;
+}
+
+.nav__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: var(--rojo-fresa);
+  transition: width 0.2s ease;
+}
+
+.nav__link:hover::after {
+  width: 100%;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 26px;
+  height: 3px;
+  background: var(--azul-oscuro);
+  border-radius: 2px;
+}
+
+/* ===== Hero: mitad urbana + mitad dulce, unidas con un corte diagonal ===== */
+.hero {
+  display: flex;
+  min-height: 88vh;
+}
+
+.hero__lado {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 3rem 4rem;
+  position: relative;
+}
+
+.hero__lado--urbano {
+  background: radial-gradient(circle at 30% 30%, var(--azul-blessd), var(--azul-oscuro) 70%);
+  clip-path: polygon(0 0, 100% 0, 88% 100%, 0% 100%);
+  margin-right: -6%;
+  z-index: 1;
+}
+
+.hero__lado--dulce {
+  background: linear-gradient(135deg, var(--rosa-crema), var(--crema));
+  padding-left: 6rem;
+}
+
+.hero__pretitulo {
+  color: var(--azul-neon);
+  font-weight: 600;
+  letter-spacing: 3px;
+  font-size: 0.85rem;
+  margin-bottom: 0.8rem;
+}
+
+.hero__pretitulo--dulce {
+  color: var(--rojo-fresa);
+}
+
+.hero__titulo {
+  font-family: var(--fuente-urbana);
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  color: var(--blanco);
+  line-height: 1.05;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 20px rgba(79, 209, 255, 0.5);
+}
+
+.hero__titulo--dulce {
+  font-family: var(--fuente-suave);
+  font-style: italic;
+  font-weight: 600;
+  color: var(--rojo-fresa);
+  text-shadow: none;
+  text-transform: none;
+}
+
+/* ===== La Colab ===== */
+.colab {
+  padding: 6rem 0;
+  text-align: center;
+}
+
+.colab__etiqueta {
+  display: inline-block;
+  background: var(--rosa-crema);
+  color: var(--rojo-fresa);
+  padding: 0.4rem 1.2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-bottom: 1.2rem;
+}
+
+.colab__titulo {
+  font-family: var(--fuente-urbana);
+  color: var(--azul-oscuro);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin-bottom: 1.5rem;
+}
+
+.colab__texto {
+  max-width: 700px;
+  margin: 0 auto;
+  color: #444;
+}
+
+/* ===== Productos ===== */
+.productos {
+  padding: 5rem 0 6rem;
+  background: var(--blanco);
+  text-align: center;
+}
+
+.productos__titulo {
+  font-family: var(--fuente-urbana);
+  color: var(--azul-blessd);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+}
+
+.productos__subtitulo {
+  color: #777;
+  margin-bottom: 3rem;
+}
+
+.productos__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.producto {
+  background: var(--crema);
+  border-radius: 20px;
+  padding: 1.5rem;
+  text-align: left;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease;
+}
+
+.producto:hover {
+  transform: translateY(-6px);
+}
+
+.producto__imagen {
+  width: 100%;
+  height: 180px;
+  border-radius: 14px;
+  margin-bottom: 1rem;
+}
+
+.producto__imagen--1 { background: linear-gradient(135deg, var(--rojo-fresa), var(--rosa-crema)); }
+.producto__imagen--2 { background: linear-gradient(135deg, var(--azul-blessd), var(--rojo-fresa)); }
+.producto__imagen--3 { background: linear-gradient(135deg, var(--azul-oscuro), var(--azul-neon)); }
+
+.producto__nombre {
+  font-size: 1.05rem;
+  margin-bottom: 0.4rem;
+}
+
+.producto__precio {
+  color: var(--rojo-fresa);
+  font-weight: 700;
+}
+
+/* ===== Footer ===== */
+.footer {
+  background: var(--azul-oscuro);
+  color: var(--blanco);
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.footer__contenido {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.footer__texto {
+  color: #cfd8ee;
+  font-size: 0.9rem;
+}
+
+.footer__copy {
+  color: #7f8bb3;
+  font-size: 0.8rem;
+  margin-top: 1rem;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .productos__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav {
+    position: absolute;
+    top: 76px;
+    left: 0;
+    right: 0;
+    background: var(--crema);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem;
+    gap: 1.2rem;
+    transform: translateY(-150%);
+    opacity: 0;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+
+  .nav.activa {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .nav__lista {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .hero {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .hero__lado--urbano {
+    clip-path: none;
+    margin-right: 0;
+    padding: 4rem 2rem;
+  }
+
+  .hero__lado--dulce {
+    padding: 4rem 2rem;
+  }
+}

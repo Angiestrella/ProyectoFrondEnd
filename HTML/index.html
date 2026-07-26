@@ -1,14 +1,114 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fresas La Crespa x Blessd</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../CSS/index.css">
 </head>
 <body>
-    <h1>Hello,jjj World!</h1>
-    <h1>Hello,jjj World!</h1>
+
+  <header class="header">
+    <div class="header__contenido contenedor">
+      <a href="#inicio" class="logo">
+        <span class="logo__fresas">Fresas La Crespa</span>
+        <span class="logo__x">x</span>
+        <span class="logo__blessd">BLESSD</span>
+      </a>
+
+      <nav class="nav" id="nav">
+        <ul class="nav__lista">
+          <li><a href="#inicio" class="nav__link">Inicio</a></li>
+          <li><a href="#colab" class="nav__link">La Colab</a></li>
+          <li><a href="#productos" class="nav__link">Productos</a></li>
+          <li><a href="#contacto" class="nav__link">Contacto</a></li>
+        </ul>
+        <a href="#productos" class="btn btn--nav">Comprar</a>
+      </nav>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO: mitad urbana (azul, Blessd) / mitad dulce (fresa, crema) -->
+    <section class="hero" id="inicio">
+      <div class="hero__lado hero__lado--urbano">
+        <p class="hero__pretitulo">BLESSD PRESENTA</p>
+        <h1 class="hero__titulo">DURO EN LA CALLE</h1>
+        <a href="#productos" class="btn btn--urbano">Ver el menú</a>
+      </div>
+      <div class="hero__lado hero__lado--dulce">
+        <p class="hero__pretitulo hero__pretitulo--dulce">FRESAS LA CRESPA</p>
+        <h1 class="hero__titulo hero__titulo--dulce">suave en la crema</h1>
+        <a href="#colab" class="btn btn--dulce">Conoce la colab</a>
+      </div>
+    </section>
+
+    <!-- SECCIÓN QUE EXPLICA LA FUSIÓN DE ESTILOS -->
+    <section class="colab" id="colab">
+      <div class="contenedor">
+        <span class="colab__etiqueta">🍓 + 🎤 la mezcla</span>
+        <h2 class="colab__titulo">¿Qué es esta colab?</h2>
+        <p class="colab__texto">
+          Blessd es la cara y la actitud del negocio: el que le pone parche y calle a la marca.
+          Fresas La Crespa es el producto: fresas con crema hechas con cuidado, para consentir.
+          Juntamos el sabor urbano de Blessd con la ternura de las fresas para crear una marca
+          que se ve fuerte por fuera y es dulce por dentro.
+        </p>
+      </div>
+    </section>
+
+    <!-- PREVIEW DE PRODUCTOS (placeholder, la lógica de compra viene en otra fase) -->
+    <section class="productos" id="productos">
+      <div class="contenedor">
+        <h2 class="productos__titulo">Nuestras fresas</h2>
+        <p class="productos__subtitulo">Próximamente disponibles para comprar en línea</p>
+
+        <div class="productos__grid">
+          <article class="producto">
+            <div class="producto__imagen producto__imagen--1"></div>
+            <h3 class="producto__nombre">Clásica con crema</h3>
+            <p class="producto__precio">$12.000</p>
+            <button class="btn btn--producto" disabled>Próximamente</button>
+          </article>
+
+          <article class="producto">
+            <div class="producto__imagen producto__imagen--2"></div>
+            <h3 class="producto__nombre">Fresas Blessd (leche condensada)</h3>
+            <p class="producto__precio">$15.000</p>
+            <button class="btn btn--producto" disabled>Próximamente</button>
+          </article>
+
+          <article class="producto">
+            <div class="producto__imagen producto__imagen--3"></div>
+            <h3 class="producto__nombre">Combo doble crespa</h3>
+            <p class="producto__precio">$25.000</p>
+            <button class="btn btn--producto" disabled>Próximamente</button>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contacto">
+    <div class="contenedor footer__contenido">
+      <div>
+        <span class="logo__fresas">Fresas La Crespa</span>
+        <span class="logo__x">x</span>
+        <span class="logo__blessd">BLESSD</span>
+      </div>
+      <p class="footer__texto">Bogotá, Colombia · pedidos por Instagram y WhatsApp</p>
+      <p class="footer__copy">&copy; 2026 Fresas La Crespa x Blessd. Proyecto académico — Desarrollo Front End.</p>
+    </div>
+  </footer>
+
+  <script src="../JS/Index.js"></script>
 </body>
-
-
 </html>
