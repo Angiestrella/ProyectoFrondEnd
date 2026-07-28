@@ -3,102 +3,173 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fresas La Crespa x Blessd</title>
+  <title>Fresas La Crespa x Blessd — Inicio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../CSS/index.css">
+
+  <!-- Bootstrap: sin este link, clases como "navbar", "row" o "col-lg-6" no tienen ningún estilo -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- CSS global: navbar, footer, botones y variables. Igual en las 5 páginas -->
+  <link rel="stylesheet" href="../CSS/global.css">
+  <!-- CSS propio de esta página: hero, colab, destacado y vitrina -->
+  <link rel="stylesheet" href="../CSS/inicio.css">
 </head>
 <body>
 
-  <header class="header">
-    <div class="header__contenido contenedor">
-      <a href="#inicio" class="logo">
-        <span class="logo__fresas">Fresas La Crespa</span>
-        <span class="logo__x">x</span>
-        <span class="logo__blessd">BLESSD</span>
-      </a>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-marca">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <span class="logo__fresas">Fresas La Crespa</span>
+          <span class="logo__x">x</span>
+          <span class="logo__blessd">BLESSD</span>
+        </a>
 
-      <nav class="nav" id="nav">
-        <ul class="nav__lista">
-          <li><a href="#inicio" class="nav__link">Inicio</a></li>
-          <li><a href="#colab" class="nav__link">La Colab</a></li>
-          <li><a href="#productos" class="nav__link">Productos</a></li>
-          <li><a href="#contacto" class="nav__link">Contacto</a></li>
-        </ul>
-        <a href="#productos" class="btn btn--nav">Comprar</a>
-      </nav>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir menú">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-      <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-lg-auto align-items-lg-center gap-3 gap-lg-4">
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
+            <li class="nav-item">
+              <a class="nav-link nav-link--carrito" href="carrito.html" aria-label="Ver carrito de compra">
+                🛒 <span id="contadorCarrito" class="badge rounded-pill carrito__contador d-none">0</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   </header>
 
   <main>
     <!-- HERO: mitad urbana (azul, Blessd) / mitad dulce (fresa, crema) -->
     <section class="hero" id="inicio">
-      <div class="hero__lado hero__lado--urbano">
-        <p class="hero__pretitulo">BLESSD PRESENTA</p>
-        <h1 class="hero__titulo">DURO EN LA CALLE</h1>
-        <a href="#productos" class="btn btn--urbano">Ver el menú</a>
-      </div>
-      <div class="hero__lado hero__lado--dulce">
-        <p class="hero__pretitulo hero__pretitulo--dulce">FRESAS LA CRESPA</p>
-        <h1 class="hero__titulo hero__titulo--dulce">suave en la crema</h1>
-        <a href="#colab" class="btn btn--dulce">Conoce la colab</a>
+      <div class="row g-0 hero__fila">
+        <div class="col-12 col-lg-6 hero__lado hero__lado--urbano">
+          <p class="hero__pretitulo">BLESSD PRESENTA</p>
+          <h1 class="hero__titulo">DURO EN LA CALLE</h1>
+          <a href="productos.html" class="btn btn--urbano">Ver el menú</a>
+        </div>
+        <div class="col-12 col-lg-6 hero__lado hero__lado--dulce">
+          <p class="hero__pretitulo hero__pretitulo--dulce">FRESAS LA CRESPA</p>
+          <h1 class="hero__titulo hero__titulo--dulce">suave en la crema</h1>
+          <a href="#colab" class="btn btn--dulce">Conoce la colab</a>
+        </div>
       </div>
     </section>
 
-    <!-- SECCIÓN QUE EXPLICA LA FUSIÓN DE ESTILOS -->
+    <!-- LA COLAB: qué es cada marca, y qué es la mezcla de las dos -->
     <section class="colab" id="colab">
-      <div class="contenedor">
-        <span class="colab__etiqueta">🍓 + 🎤 la mezcla</span>
+      <div class="container">
+        <span class="etiqueta">🍓 + 🎤 la mezcla</span>
         <h2 class="colab__titulo">¿Qué es esta colab?</h2>
         <p class="colab__texto">
-          Blessd es la cara y la actitud del negocio: el que le pone parche y calle a la marca.
-          Fresas La Crespa es el producto: fresas con crema hechas con cuidado, para consentir.
-          Juntamos el sabor urbano de Blessd con la ternura de las fresas para crear una marca
-          que se ve fuerte por fuera y es dulce por dentro.
+          Juntamos el sabor urbano de Blessd con la ternura de Fresas La Crespa para crear una
+          marca que se ve fuerte por fuera y es dulce por dentro.
         </p>
+
+        <div class="row g-4 text-start">
+          <div class="col-12 col-md-6">
+            <div class="colab__marca colab__marca--urbano">
+              <h3 class="colab__marca-titulo">🎤 Blessd</h3>
+              <p class="colab__marca-texto">
+                Es la cara y la actitud del negocio: el que le pone parche y calle a la marca,
+                con la misma energía urbana de sus canciones.
+              </p>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="colab__marca colab__marca--dulce">
+              <h3 class="colab__marca-titulo">🍓 Fresas La Crespa</h3>
+              <p class="colab__marca-texto">
+                Es el producto: fresas con crema hechas a mano y con cuidado, pensadas para
+                consentir a quien las recibe.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- PREVIEW DE PRODUCTOS (placeholder, la lógica de compra viene en otra fase) -->
-    <section class="productos" id="productos">
-      <div class="contenedor">
-        <h2 class="productos__titulo">Nuestras fresas</h2>
-        <p class="productos__subtitulo">Próximamente disponibles para comprar en línea</p>
-
-        <div class="productos__grid">
-          <article class="producto">
-            <div class="producto__imagen producto__imagen--1"></div>
-            <h3 class="producto__nombre">Clásica con crema</h3>
-            <p class="producto__precio">$12.000</p>
-            <button class="btn btn--producto" disabled>Próximamente</button>
-          </article>
-
-          <article class="producto">
-            <div class="producto__imagen producto__imagen--2"></div>
-            <h3 class="producto__nombre">Fresas Blessd (leche condensada)</h3>
-            <p class="producto__precio">$15.000</p>
-            <button class="btn btn--producto" disabled>Próximamente</button>
-          </article>
-
-          <article class="producto">
-            <div class="producto__imagen producto__imagen--3"></div>
-            <h3 class="producto__nombre">Combo doble crespa</h3>
-            <p class="producto__precio">$25.000</p>
-            <button class="btn btn--producto" disabled>Próximamente</button>
-          </article>
+    <!-- PRODUCTO ESTRELLA: La Bendición -->
+    <section class="bendicion" id="bendicion">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-12 col-lg-6">
+            <img src="../IMG/bendicion.png" alt="Copa de fresas con crema La Crespa, La Bendición, sobre el carro de la colab con Blessd" class="bendicion__imagen">
+          </div>
+          <div class="col-12 col-lg-6">
+            <span class="etiqueta">⭐ Producto estrella</span>
+            <h2 class="bendicion__titulo">La Bendición</h2>
+            <p class="bendicion__texto">
+              Fresas frescas bañadas en chocolate, con crema batida y un toque de canela: la
+              combinación exacta entre el sabor urbano de Blessd y la ternura de Fresas La Crespa.
+            </p>
+            <p class="bendicion__precio">$18.000</p>
+            <button
+              class="btn btn--dulce agregar-carrito"
+              data-id="bendicion"
+              data-nombre="La Bendición"
+              data-precio="18000"
+            >
+              Agregar al carrito
+            </button>
+          </div>
         </div>
+      </div>
+    </section>
+
+    <!-- VITRINA: preview de los demás productos, con link a la página completa -->
+    <section class="vitrina">
+      <div class="container text-center">
+        <h2 class="vitrina__titulo">También te va a gustar</h2>
+
+        <div class="row g-4 text-start">
+          <div class="col-12 col-md-6 col-lg-4">
+            <article class="card producto h-100">
+              <div class="producto__imagen producto__imagen--clasica"></div>
+              <div class="card-body">
+                <h3 class="card-title producto__nombre">Clásica con crema</h3>
+                <p class="card-text producto__precio">$12.000</p>
+                <button class="btn btn--producto agregar-carrito" data-id="clasica" data-nombre="Clásica con crema" data-precio="12000">Agregar al carrito</button>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4">
+            <article class="card producto h-100">
+              <div class="producto__imagen producto__imagen--blessd-leche"></div>
+              <div class="card-body">
+                <h3 class="card-title producto__nombre">Fresas Blessd (leche condensada)</h3>
+                <p class="card-text producto__precio">$15.000</p>
+                <button class="btn btn--producto agregar-carrito" data-id="blessd-leche" data-nombre="Fresas Blessd (leche condensada)" data-precio="15000">Agregar al carrito</button>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4">
+            <article class="card producto h-100">
+              <div class="producto__imagen producto__imagen--combo-doble"></div>
+              <div class="card-body">
+                <h3 class="card-title producto__nombre">Combo doble crespa</h3>
+                <p class="card-text producto__precio">$25.000</p>
+                <button class="btn btn--producto agregar-carrito" data-id="combo-doble" data-nombre="Combo doble crespa" data-precio="25000">Agregar al carrito</button>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <a href="productos.html" class="btn btn--nav mt-5">Ver todos los productos</a>
       </div>
     </section>
   </main>
 
-  <footer class="footer" id="contacto">
-    <div class="contenedor footer__contenido">
+  <footer class="footer">
+    <div class="container footer__contenido">
       <div>
         <span class="logo__fresas">Fresas La Crespa</span>
         <span class="logo__x">x</span>
@@ -109,6 +180,9 @@
     </div>
   </footer>
 
-  <script src="../JS/Index.js"></script>
+  <!-- Bootstrap JS: sin esto, el botón hamburguesa no abre el menú en celular -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Nuestro JS del carrito: se carga en las 5 páginas -->
+  <script src="../JS/carrito.js"></script>
 </body>
 </html>

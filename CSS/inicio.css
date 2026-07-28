@@ -1,0 +1,203 @@
+/* ===== CSS exclusivo de Inicio (index.html) =====
+   Todo lo de aquí solo se usa en esta página: el hero, la sección "La Colab",
+   el destacado del producto estrella y la vitrina de otros productos. */
+
+/* Hero: foto real de la colab (IMG/banner.png) con un degradado oscuro
+   ENCIMA para que el texto blanco siga siendo legible sobre la foto.
+   CSS permite apilar varios "background" separados por comas: el primero
+   que se escribe queda arriba, el último queda abajo del todo. */
+.hero__fila {
+  min-height: 88vh;
+  background:
+    linear-gradient(90deg, rgba(11, 27, 63, 0.82) 0%, rgba(11, 27, 63, 0.35) 55%, rgba(230, 57, 80, 0.55) 100%),
+    url('../IMG/banner.png') center 25% / cover no-repeat;
+}
+
+.hero__lado {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 3rem 4rem;
+}
+
+.hero__pretitulo {
+  color: var(--azul-neon);
+  font-weight: 600;
+  letter-spacing: 3px;
+  font-size: 0.85rem;
+  margin-bottom: 0.8rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+.hero__pretitulo--dulce {
+  color: var(--rosa-crema);
+}
+
+.hero__titulo {
+  font-family: var(--fuente-urbana);
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  color: var(--blanco);
+  line-height: 1.05;
+  margin-bottom: 2rem;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.6);
+}
+
+.hero__titulo--dulce {
+  font-family: var(--fuente-suave);
+  font-style: italic;
+  font-weight: 600;
+  color: var(--rosa-crema);
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.6);
+  text-transform: none;
+}
+
+/* La Colab: la historia de Blessd + Fresas La Crespa, combinadas */
+.colab {
+  padding: 6rem 0;
+  text-align: center;
+}
+
+.colab__titulo {
+  font-family: var(--fuente-urbana);
+  color: var(--azul-oscuro);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin-bottom: 1.5rem;
+}
+
+.colab__texto {
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  color: #444;
+}
+
+.colab__marca {
+  background: var(--blanco);
+  border-radius: 20px;
+  padding: 2rem;
+  height: 100%;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+.colab__marca-titulo {
+  font-family: var(--fuente-urbana);
+  font-size: 1.2rem;
+  margin-bottom: 0.6rem;
+}
+
+.colab__marca--urbano .colab__marca-titulo {
+  color: var(--azul-blessd);
+}
+
+.colab__marca--dulce .colab__marca-titulo {
+  color: var(--rojo-fresa);
+}
+
+.colab__marca-texto {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* Producto estrella: La Bendición */
+.bendicion {
+  padding: 5rem 0;
+  background: linear-gradient(135deg, var(--azul-oscuro), var(--azul-blessd));
+  color: var(--blanco);
+}
+
+.bendicion__imagen {
+  display: block;
+  width: 100%;
+  height: 320px;
+  border-radius: 24px;
+  /* object-fit: cover recorta la foto para llenar la caja sin deformarla
+     (como el "Fill" de Figma), y object-position elige qué parte de la
+     foto se prioriza al recortar: aquí, un poco arriba del centro para
+     que no se pierda la copa de fresas. */
+  object-fit: cover;
+  object-position: center 30%;
+  box-shadow: 0 0 30px rgba(230, 57, 80, 0.4);
+}
+
+.bendicion__titulo {
+  font-family: var(--fuente-urbana);
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin: 0.6rem 0 1rem;
+}
+
+.bendicion__texto {
+  color: #d7e0f7;
+  margin-bottom: 1.5rem;
+}
+
+.bendicion__precio {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--azul-neon);
+  margin-bottom: 1.5rem;
+}
+
+/* Vitrina: preview de los demás productos */
+.vitrina {
+  padding: 5rem 0 6rem;
+  background: var(--blanco);
+  text-align: center;
+}
+
+.vitrina__titulo {
+  font-family: var(--fuente-urbana);
+  color: var(--azul-blessd);
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  margin-bottom: 3rem;
+}
+
+.producto {
+  background: var(--crema);
+  border: none;
+  border-radius: 20px;
+  padding: 1.5rem;
+  text-align: left;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease;
+}
+
+.producto:hover {
+  transform: translateY(-6px);
+}
+
+.producto .card-body {
+  padding: 0;
+}
+
+.producto__imagen {
+  width: 100%;
+  height: 180px;
+  border-radius: 14px;
+  margin-bottom: 1rem;
+}
+
+.producto__imagen--clasica { background: linear-gradient(135deg, var(--rojo-fresa), var(--rosa-crema)); }
+.producto__imagen--blessd-leche { background: linear-gradient(135deg, var(--azul-blessd), var(--rojo-fresa)); }
+.producto__imagen--combo-doble { background: linear-gradient(135deg, var(--azul-oscuro), var(--azul-neon)); }
+
+.producto__nombre {
+  font-size: 1.05rem;
+  margin-bottom: 0.4rem;
+}
+
+.producto__precio {
+  color: var(--rojo-fresa);
+  font-weight: 700;
+}
+
+/* ===== Responsive =====
+   991.98px coincide con el punto en el que Bootstrap apila las columnas "col-lg-*". */
+@media (max-width: 991.98px) {
+  .hero__lado {
+    padding: 4rem 2rem;
+  }
+
+  .bendicion__imagen {
+    height: 240px;
+  }
+}

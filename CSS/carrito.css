@@ -1,0 +1,73 @@
+/* ===== CSS exclusivo del Carrito (carrito.html) ===== */
+
+.carrito {
+  padding: 4rem 0 6rem;
+  min-height: 60vh;
+}
+
+.carrito__titulo {
+  font-family: var(--fuente-urbana);
+  color: var(--azul-oscuro);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin-bottom: 2rem;
+}
+
+.carrito__vacio {
+  text-align: center;
+  padding: 4rem 0;
+  color: #777;
+}
+
+.carrito__tabla {
+  background: var(--blanco);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.carrito__tabla th {
+  background: var(--crema);
+  font-family: var(--fuente-urbana);
+  color: var(--azul-oscuro);
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+.btn--cantidad {
+  background: var(--rosa-crema);
+  color: var(--rojo-fresa);
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.btn--quitar {
+  background: transparent;
+  color: #999;
+  text-decoration: underline;
+  font-size: 0.85rem;
+  padding: 0;
+}
+
+.btn--vaciar {
+  background: transparent;
+  border: 2px solid var(--rojo-fresa);
+  color: var(--rojo-fresa);
+}
+
+.carrito__resumen {
+  background: var(--azul-oscuro);
+  color: var(--blanco);
+  border-radius: 20px;
+  padding: 2rem;
+}
+
+.carrito__total {
+  font-family: var(--fuente-urbana);
+  font-size: 1.8rem;
+  color: var(--azul-neon);
+  margin-bottom: 1rem;
+}

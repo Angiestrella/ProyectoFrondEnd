@@ -1,0 +1,200 @@
+/* ===== CSS GLOBAL =====
+   Este es el ÚNICO archivo de CSS que se carga en todas las páginas del sitio.
+   Aquí solo va lo que se repite en TODAS ellas: variables de color, reset,
+   botones, la navbar y el footer. Cada página tiene además su propio CSS
+   (inicio.css, productos.css, carrito.css) para lo que le pertenece solo a ella. */
+
+:root {
+  --azul-oscuro: #0b1b3f;
+  --azul-blessd: #1e40d6;
+  --azul-neon: #4fd1ff;
+  --rojo-fresa: #e63950;
+  --rosa-crema: #ffd1dc;
+  --crema: #fff8f1;
+  --blanco: #ffffff;
+  --texto-oscuro: #1a1a1a;
+
+  --fuente-urbana: 'Anton', sans-serif;
+  --fuente-suave: 'Poppins', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--fuente-suave);
+  color: var(--texto-oscuro);
+  background-color: var(--crema);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ===== Etiqueta pill reutilizable ("⭐ producto estrella", "la mezcla", "encuéntranos"...) ===== */
+.etiqueta {
+  display: inline-block;
+  background: var(--rosa-crema);
+  color: var(--rojo-fresa);
+  padding: 0.4rem 1.2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-bottom: 1.2rem;
+}
+
+/* ===== Botones ===== */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  border-radius: 50px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn--nav {
+  background: linear-gradient(90deg, var(--azul-blessd), var(--rojo-fresa));
+  color: var(--blanco);
+  font-size: 0.9rem;
+}
+
+.btn--urbano {
+  background: transparent;
+  color: var(--blanco);
+  border: 2px solid var(--azul-neon);
+  box-shadow: 0 0 15px rgba(79, 209, 255, 0.4);
+}
+
+.btn--dulce {
+  background: var(--rojo-fresa);
+  color: var(--blanco);
+}
+
+.btn--producto {
+  width: 100%;
+  background: var(--rosa-crema);
+  color: var(--rojo-fresa);
+  margin-top: 1rem;
+}
+
+.btn--producto:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* ===== Navbar (se repite en las 5 páginas) ===== */
+.navbar-marca {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 248, 241, 0.92);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  padding: 1rem 0;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 1.1rem;
+}
+
+.logo__fresas {
+  font-weight: 700;
+  color: var(--rojo-fresa);
+  font-style: italic;
+}
+
+.logo__x {
+  color: #999;
+  font-size: 0.9rem;
+}
+
+.logo__blessd {
+  font-family: var(--fuente-urbana);
+  color: var(--azul-blessd);
+  letter-spacing: 1px;
+}
+
+.navbar .nav-link {
+  font-weight: 500;
+  color: var(--texto-oscuro);
+  position: relative;
+}
+
+.navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: var(--rojo-fresa);
+  transition: width 0.2s ease;
+}
+
+.navbar .nav-link:hover::after,
+.navbar .nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link--carrito {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 1.2rem;
+}
+
+.carrito__contador {
+  background: var(--rojo-fresa);
+  color: var(--blanco);
+  font-size: 0.7rem;
+  vertical-align: middle;
+}
+
+/* ===== Footer (se repite en las 5 páginas) ===== */
+.footer {
+  background: var(--azul-oscuro);
+  color: var(--blanco);
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.footer__contenido {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.footer__texto {
+  color: #cfd8ee;
+  font-size: 0.9rem;
+}
+
+.footer__copy {
+  color: #7f8bb3;
+  font-size: 0.8rem;
+  margin-top: 1rem;
+}
