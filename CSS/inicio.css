@@ -108,14 +108,20 @@
 .bendicion__imagen {
   display: block;
   width: 100%;
-  height: 320px;
+  /* aspect-ratio fija la proporción ancho:alto de la caja (4 de ancho por
+     cada 5 de alto, un formato "retrato" suave) sin importar cuán ancha
+     sea la columna — así no hace falta un alto fijo en píxeles ni un
+     media query aparte para celular. */
+  aspect-ratio: 4 / 5;
+  max-height: 520px;
   border-radius: 24px;
-  /* object-fit: cover recorta la foto para llenar la caja sin deformarla
-     (como el "Fill" de Figma), y object-position elige qué parte de la
-     foto se prioriza al recortar: aquí, un poco arriba del centro para
-     que no se pierda la copa de fresas. */
-  object-fit: cover;
-  object-position: center 30%;
+  background: rgba(255, 255, 255, 0.06);
+  /* object-fit: contain encoge la foto para que quepa COMPLETA dentro de
+     la caja, sin recortar nada (a diferencia de "cover", que recorta lo
+     que sobra). Si la foto no tiene exactamente la misma proporción que
+     la caja, queda un espacio a los lados, que aquí se rellena con el
+     fondo oscuro de la sección. */
+  object-fit: contain;
   box-shadow: 0 0 30px rgba(230, 57, 80, 0.4);
 }
 
@@ -170,15 +176,16 @@
 }
 
 .producto__imagen {
+  display: block;
   width: 100%;
-  height: 180px;
+  /* Caja cuadrada: buen punto medio para fotos así sean verticales u
+     horizontales, sin necesitar un tamaño distinto por producto. */
+  aspect-ratio: 1 / 1;
   border-radius: 14px;
   margin-bottom: 1rem;
+  background: var(--crema);
+  object-fit: contain;
 }
-
-.producto__imagen--clasica { background: linear-gradient(135deg, var(--rojo-fresa), var(--rosa-crema)); }
-.producto__imagen--blessd-leche { background: linear-gradient(135deg, var(--azul-blessd), var(--rojo-fresa)); }
-.producto__imagen--combo-doble { background: linear-gradient(135deg, var(--azul-oscuro), var(--azul-neon)); }
 
 .producto__nombre {
   font-size: 1.05rem;
@@ -195,9 +202,5 @@
 @media (max-width: 991.98px) {
   .hero__lado {
     padding: 4rem 2rem;
-  }
-
-  .bendicion__imagen {
-    height: 240px;
   }
 }

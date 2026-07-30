@@ -1,121 +1,14 @@
-// Este archivo se carga en las 5 páginas. Guarda el carrito en localStorage
-// (una "caja" del navegador que no se borra al cambiar de página) para que
-// lo que agregues en Productos siga ahí cuando entres a Carrito.
+// JS exclusivo del Carrito (carrito.html): dibuja la tabla con los
+// productos guardados y conecta los botones de cantidad, quitar y vaciar.
+// Usa obtenerCarrito(), cambiarCantidad(), quitarDelCarrito(), vaciarCarrito()
+// y formatearPrecio(), todas definidas en JS/global.js, que se carga antes
+// que este archivo.
 
-const CLAVE_CARRITO = 'carritoFresasBlessd';
-
-// Lee el carrito guardado. Si todavía no hay nada guardado, devuelve un array vacío.
-function obtenerCarrito() {
-  const guardado = localStorage.getItem(CLAVE_CARRITO);
-  if (guardado === null) {
-    return [];
-  }
-  return JSON.parse(guardado);
-}
-
-// Guarda el carrito (un array de productos) en localStorage.
-function guardarCarrito(carrito) {
-  localStorage.setItem(CLAVE_CARRITO, JSON.stringify(carrito));
-}
-
-// Convierte un número como 12000 en el texto "$12.000"
-function formatearPrecio(precio) {
-  return '$' + precio.toLocaleString('es-CO');
-}
-
-// Actualiza el numerito rojo del carrito en la navbar, en TODAS las páginas.
-function actualizarContador() {
-  const carrito = obtenerCarrito();
-  let totalUnidades = 0;
-
-  carrito.forEach((producto) => {
-    totalUnidades = totalUnidades + producto.cantidad;
-  });
-
-  const contador = document.getElementById('contadorCarrito');
-  if (contador === null) {
-    return;
-  }
-
-  contador.textContent = totalUnidades;
-  contador.classList.toggle('d-none', totalUnidades === 0);
-}
-
-// Agrega un producto al carrito. Si ya estaba, le suma 1 a la cantidad
-// en vez de duplicarlo.
-function agregarAlCarrito(id, nombre, precio) {
-  const carrito = obtenerCarrito();
-  let yaExiste = false;
-
-  for (let i = 0; i < carrito.length; i++) {
-    if (carrito[i].id === id) {
-      carrito[i].cantidad = carrito[i].cantidad + 1;
-      yaExiste = true;
-    }
-  }
-
-  if (!yaExiste) {
-    carrito.push({ id: id, nombre: nombre, precio: precio, cantidad: 1 });
-  }
-
-  guardarCarrito(carrito);
-  actualizarContador();
-}
-
-// Suma o resta 1 a la cantidad de un producto (delta es 1 o -1).
-// Si la cantidad llega a 0, el producto se quita del carrito.
-function cambiarCantidad(id, delta) {
-  const carrito = obtenerCarrito();
-
-  for (let i = 0; i < carrito.length; i++) {
-    if (carrito[i].id === id) {
-      carrito[i].cantidad = carrito[i].cantidad + delta;
-    }
-  }
-
-  const carritoFiltrado = [];
-  for (let i = 0; i < carrito.length; i++) {
-    if (carrito[i].cantidad > 0) {
-      carritoFiltrado.push(carrito[i]);
-    }
-  }
-
-  guardarCarrito(carritoFiltrado);
-  renderizarCarrito();
-  actualizarContador();
-}
-
-// Quita un producto del carrito por completo, sin importar la cantidad.
-function quitarDelCarrito(id) {
-  const carrito = obtenerCarrito();
-  const carritoFiltrado = [];
-
-  for (let i = 0; i < carrito.length; i++) {
-    if (carrito[i].id !== id) {
-      carritoFiltrado.push(carrito[i]);
-    }
-  }
-
-  guardarCarrito(carritoFiltrado);
-  renderizarCarrito();
-  actualizarContador();
-}
-
-// Deja el carrito completamente vacío.
-function vaciarCarrito() {
-  guardarCarrito([]);
-  renderizarCarrito();
-  actualizarContador();
-}
-
-// Dibuja la tabla del carrito. Solo hace algo si estamos en carrito.html
-// (si el elemento "listaCarrito" no existe en la página, no hace nada).
+// Dibuja la tabla del carrito a partir de lo guardado en localStorage.
+// (No hace falta comprobar si "listaCarrito" existe: este archivo solo se
+// carga en carrito.html, así que ese elemento siempre está ahí.)
 function renderizarCarrito() {
   const contenedor = document.getElementById('listaCarrito');
-  if (contenedor === null) {
-    return;
-  }
-
   const carrito = obtenerCarrito();
   const mensajeVacio = document.getElementById('carritoVacio');
   const resumen = document.getElementById('resumenCarrito');
@@ -174,21 +67,8 @@ function renderizarCarrito() {
   });
 }
 
-// Punto de entrada: esto corre en cuanto el HTML de la página termina de cargar.
 document.addEventListener('DOMContentLoaded', () => {
-  actualizarContador();
   renderizarCarrito();
-
-  const botonesAgregar = document.querySelectorAll('.agregar-carrito');
-  botonesAgregar.forEach((boton) => {
-    boton.addEventListener('click', () => {
-      agregarAlCarrito(boton.dataset.id, boton.dataset.nombre, Number(boton.dataset.precio));
-      boton.textContent = 'Agregado ✓';
-      setTimeout(() => {
-        boton.textContent = 'Agregar al carrito';
-      }, 1000);
-    });
-  });
 
   const botonVaciar = document.getElementById('vaciarCarrito');
   if (botonVaciar !== null) {

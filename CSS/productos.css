@@ -50,19 +50,15 @@
 .producto__imagen {
   display: block;
   width: 100%;
-  height: 180px;
+  /* Caja cuadrada de proporción fija (no un alto en píxeles), y
+     object-fit: contain para que la foto quepa COMPLETA sin recortarse,
+     sea cual sea su forma original (vertical, horizontal o cuadrada). */
+  aspect-ratio: 1 / 1;
   border-radius: 14px;
   margin-bottom: 1rem;
-  /* object-fit/object-position solo afectan a <img> (los <div> placeholder
-     de color los ignoran sin problema): recortan la foto para llenar la
-     caja de 180px sin deformarla, priorizando la parte de arriba. */
-  object-fit: cover;
-  object-position: center 25%;
+  background: var(--crema);
+  object-fit: contain;
 }
-
-.producto__imagen--clasica { background: linear-gradient(135deg, var(--rojo-fresa), var(--rosa-crema)); }
-.producto__imagen--blessd-leche { background: linear-gradient(135deg, var(--azul-blessd), var(--rojo-fresa)); }
-.producto__imagen--combo-doble { background: linear-gradient(135deg, var(--azul-oscuro), var(--azul-neon)); }
 
 .producto__nombre {
   font-size: 1.05rem;

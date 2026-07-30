@@ -43,7 +43,7 @@
 
   <main>
     <!-- GRID DE PRODUCTOS: 1 columna en celular, 2 en tablet, 3 en escritorio -->
-    <section class="productos" id="productos">
+    <section class="productos">
       <div class="container">
         <h1 class="productos__titulo">Nuestras fresas</h1>
         <p class="productos__subtitulo">Elige tus favoritas y agrégalas al carrito</p>
@@ -52,10 +52,10 @@
           <div class="col-12 col-md-6 col-lg-4">
             <article class="card producto producto--estrella h-100">
               <span class="etiqueta producto__etiqueta-estrella">⭐ Estrella</span>
-              <img src="../IMG/bendicion.png" alt="Copa de fresas con crema La Crespa, La Bendición" class="producto__imagen">
+              <img src="../IMG/bendicion.png" alt="Copa de fresas con crema y frutos rojos, La Bendición" class="producto__imagen">
               <div class="card-body">
-                <h2 class="card-title producto__nombre">La Bendición</h2>
-                <p class="card-text producto__precio">$18.000</p>
+                <h2 class="producto__nombre">La Bendición</h2>
+                <p class="producto__precio">$18.000</p>
                 <button class="btn btn--producto agregar-carrito" data-id="bendicion" data-nombre="La Bendición" data-precio="18000">Agregar al carrito</button>
               </div>
             </article>
@@ -63,10 +63,10 @@
 
           <div class="col-12 col-md-6 col-lg-4">
             <article class="card producto h-100">
-              <div class="producto__imagen producto__imagen--clasica"></div>
+              <img src="../IMG/clasica.png" alt="Copa de fresas con crema clásica" class="producto__imagen">
               <div class="card-body">
-                <h2 class="card-title producto__nombre">Clásica con crema</h2>
-                <p class="card-text producto__precio">$12.000</p>
+                <h2 class="producto__nombre">Clásica con crema</h2>
+                <p class="producto__precio">$12.000</p>
                 <button class="btn btn--producto agregar-carrito" data-id="clasica" data-nombre="Clásica con crema" data-precio="12000">Agregar al carrito</button>
               </div>
             </article>
@@ -74,22 +74,22 @@
 
           <div class="col-12 col-md-6 col-lg-4">
             <article class="card producto h-100">
-              <div class="producto__imagen producto__imagen--blessd-leche"></div>
+              <img src="../IMG/merengoblessd.png" alt="Merengón con salsa de chicle azul, Merengoblessd" class="producto__imagen">
               <div class="card-body">
-                <h2 class="card-title producto__nombre">Fresas Blessd (leche condensada)</h2>
-                <p class="card-text producto__precio">$15.000</p>
-                <button class="btn btn--producto agregar-carrito" data-id="blessd-leche" data-nombre="Fresas Blessd (leche condensada)" data-precio="15000">Agregar al carrito</button>
+                <h2 class="producto__nombre">Merengoblessd</h2>
+                <p class="producto__precio">$15.000</p>
+                <button class="btn btn--producto agregar-carrito" data-id="merengoblessd" data-nombre="Merengoblessd" data-precio="15000">Agregar al carrito</button>
               </div>
             </article>
           </div>
 
           <div class="col-12 col-md-6 col-lg-4">
             <article class="card producto h-100">
-              <div class="producto__imagen producto__imagen--combo-doble"></div>
+              <img src="../IMG/combobendito.png" alt="Merengoblessd y La Bendición juntos frente al letrero de La Crespa" class="producto__imagen">
               <div class="card-body">
-                <h2 class="card-title producto__nombre">Combo doble crespa</h2>
-                <p class="card-text producto__precio">$25.000</p>
-                <button class="btn btn--producto agregar-carrito" data-id="combo-doble" data-nombre="Combo doble crespa" data-precio="25000">Agregar al carrito</button>
+                <h2 class="producto__nombre">Combo bendito</h2>
+                <p class="producto__precio">$32.000</p>
+                <button class="btn btn--producto agregar-carrito" data-id="combo-bendito" data-nombre="Combo bendito" data-precio="32000">Agregar al carrito</button>
               </div>
             </article>
           </div>
@@ -111,6 +111,9 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="../JS/carrito.js"></script>
+  <!-- global.js: el motor del carrito, se carga en las 3 páginas -->
+  <script src="../JS/global.js"></script>
+  <!-- productos.js: solo lo que le pertenece a esta página -->
+  <script src="../JS/productos.js"></script>
 </body>
 </html>

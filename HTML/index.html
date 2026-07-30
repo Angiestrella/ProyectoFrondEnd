@@ -47,7 +47,7 @@
 
   <main>
     <!-- HERO: mitad urbana (azul, Blessd) / mitad dulce (fresa, crema) -->
-    <section class="hero" id="inicio">
+    <section class="hero">
       <div class="row g-0 hero__fila">
         <div class="col-12 col-lg-6 hero__lado hero__lado--urbano">
           <p class="hero__pretitulo">BLESSD PRESENTA</p>
@@ -96,11 +96,11 @@
     </section>
 
     <!-- PRODUCTO ESTRELLA: La Bendición -->
-    <section class="bendicion" id="bendicion">
+    <section class="bendicion">
       <div class="container">
         <div class="row align-items-center g-5">
           <div class="col-12 col-lg-6">
-            <img src="../IMG/bendicion.png" alt="Copa de fresas con crema La Crespa, La Bendición, sobre el carro de la colab con Blessd" class="bendicion__imagen">
+            <img src="../IMG/bendicion.png" alt="Copa de fresas con crema y frutos rojos, La Bendición" class="bendicion__imagen">
           </div>
           <div class="col-12 col-lg-6">
             <span class="etiqueta">⭐ Producto estrella</span>
@@ -110,14 +110,7 @@
               combinación exacta entre el sabor urbano de Blessd y la ternura de Fresas La Crespa.
             </p>
             <p class="bendicion__precio">$18.000</p>
-            <button
-              class="btn btn--dulce agregar-carrito"
-              data-id="bendicion"
-              data-nombre="La Bendición"
-              data-precio="18000"
-            >
-              Agregar al carrito
-            </button>
+            <button class="btn btn--dulce agregar-carrito" data-id="bendicion" data-nombre="La Bendición" data-precio="18000">Agregar al carrito</button>
           </div>
         </div>
       </div>
@@ -125,16 +118,16 @@
 
     <!-- VITRINA: preview de los demás productos, con link a la página completa -->
     <section class="vitrina">
-      <div class="container text-center">
+      <div class="container">
         <h2 class="vitrina__titulo">También te va a gustar</h2>
 
         <div class="row g-4 text-start">
           <div class="col-12 col-md-6 col-lg-4">
             <article class="card producto h-100">
-              <div class="producto__imagen producto__imagen--clasica"></div>
+              <img src="../IMG/clasica.png" alt="Copa de fresas con crema clásica" class="producto__imagen">
               <div class="card-body">
-                <h3 class="card-title producto__nombre">Clásica con crema</h3>
-                <p class="card-text producto__precio">$12.000</p>
+                <h3 class="producto__nombre">Clásica con crema</h3>
+                <p class="producto__precio">$12.000</p>
                 <button class="btn btn--producto agregar-carrito" data-id="clasica" data-nombre="Clásica con crema" data-precio="12000">Agregar al carrito</button>
               </div>
             </article>
@@ -142,22 +135,22 @@
 
           <div class="col-12 col-md-6 col-lg-4">
             <article class="card producto h-100">
-              <div class="producto__imagen producto__imagen--blessd-leche"></div>
+              <img src="../IMG/merengoblessd.png" alt="Merengón con salsa de chicle azul, Merengoblessd" class="producto__imagen">
               <div class="card-body">
-                <h3 class="card-title producto__nombre">Fresas Blessd (leche condensada)</h3>
-                <p class="card-text producto__precio">$15.000</p>
-                <button class="btn btn--producto agregar-carrito" data-id="blessd-leche" data-nombre="Fresas Blessd (leche condensada)" data-precio="15000">Agregar al carrito</button>
+                <h3 class="producto__nombre">Merengoblessd</h3>
+                <p class="producto__precio">$15.000</p>
+                <button class="btn btn--producto agregar-carrito" data-id="merengoblessd" data-nombre="Merengoblessd" data-precio="15000">Agregar al carrito</button>
               </div>
             </article>
           </div>
 
           <div class="col-12 col-md-6 col-lg-4">
             <article class="card producto h-100">
-              <div class="producto__imagen producto__imagen--combo-doble"></div>
+              <img src="../IMG/combobendito.png" alt="Merengoblessd y La Bendición juntos frente al letrero de La Crespa" class="producto__imagen">
               <div class="card-body">
-                <h3 class="card-title producto__nombre">Combo doble crespa</h3>
-                <p class="card-text producto__precio">$25.000</p>
-                <button class="btn btn--producto agregar-carrito" data-id="combo-doble" data-nombre="Combo doble crespa" data-precio="25000">Agregar al carrito</button>
+                <h3 class="producto__nombre">Combo bendito</h3>
+                <p class="producto__precio">$32.000</p>
+                <button class="btn btn--producto agregar-carrito" data-id="combo-bendito" data-nombre="Combo bendito" data-precio="32000">Agregar al carrito</button>
               </div>
             </article>
           </div>
@@ -182,7 +175,9 @@
 
   <!-- Bootstrap JS: sin esto, el botón hamburguesa no abre el menú en celular -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Nuestro JS del carrito: se carga en las 3 páginas -->
-  <script src="../JS/carrito.js"></script>
+  <!-- global.js: el motor del carrito, se carga en las 3 páginas -->
+  <script src="../JS/global.js"></script>
+  <!-- inicio.js: solo lo que le pertenece a esta página -->
+  <script src="../JS/inicio.js"></script>
 </body>
 </html>
