@@ -151,16 +151,16 @@ Las 3 páginas comparten exactamente la misma estructura general. La explicamos 
         <span class="logo__blessd">BLESSD</span>
       </a>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir menú">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-lg-auto align-items-lg-center gap-3 gap-lg-4">
-          <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
           <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
           <li class="nav-item">
-            <a class="nav-link nav-link--carrito" href="carrito.html" aria-label="Ver carrito de compra">
+            <a class="nav-link nav-link--carrito" href="carrito.html">
               🛒 <span id="contadorCarrito" class="badge rounded-pill carrito__contador d-none">0</span>
             </a>
           </li>
@@ -186,12 +186,11 @@ Elemento por elemento:
 **El botón hamburguesa (menú en celular):**
 
 ```html
-<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir menú">
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
 ```
 
 - `type="button"`: evita que, si algún día este botón quedara dentro de un `<form>`, se comporte como botón de "enviar formulario" por accidente. Es buena práctica ponerlo siempre en botones que no envían nada.
-- `data-bs-toggle="collapse"` y `data-bs-target="#navbarNav"`: estos son **atributos de datos** (`data-*`) que **Bootstrap JS lee** para saber qué hacer. Le dicen: "cuando hagan clic en este botón, activa el comportamiento `collapse` (mostrar/ocultar) sobre el elemento cuyo `id` es `navbarNav`". El `#` antes de `navbarNav` es la misma sintaxis que en CSS para "seleccionar por id".
-- `aria-controls`, `aria-expanded`, `aria-label`: son atributos de **accesibilidad** (para personas que navegan con lector de pantalla). `aria-label="Abrir menú"` le da un nombre hablado al botón, ya que el botón no tiene texto visible, solo un ícono. `aria-expanded="false"` indica que el menú empieza cerrado; Bootstrap JS lo cambia automáticamente a `"true"` cuando se abre.
+- `data-bs-toggle="collapse"` y `data-bs-target="#navbarNav"`: estos son **atributos de datos** (`data-*`) que **Bootstrap JS lee** para saber qué hacer. Le dicen: "cuando hagan clic en este botón, activa el comportamiento `collapse` (mostrar/ocultar) sobre el elemento cuyo `id` es `navbarNav`". El `#` antes de `navbarNav` es la misma sintaxis que en CSS para "seleccionar por id". Estos dos son los únicos atributos que hacen falta para que el botón funcione — no se agregaron atributos `aria-*` de accesibilidad porque no es algo que pida la rúbrica de esta entrega.
 - El `<span class="navbar-toggler-icon">` de adentro es el ícono de las 3 rayitas (☰); ese ícono lo dibuja Bootstrap con CSS, la etiqueta solo es el "gancho" donde se dibuja.
 
 **El menú de enlaces:**
@@ -199,7 +198,7 @@ Elemento por elemento:
 ```html
 <div class="collapse navbar-collapse" id="navbarNav">
   <ul class="navbar-nav ms-lg-auto align-items-lg-center gap-3 gap-lg-4">
-    <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Inicio</a></li>
+    <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
     ...
 ```
 
@@ -208,7 +207,7 @@ Elemento por elemento:
 - `<ul>` / `<li>`: lista no ordenada / elemento de lista. Semánticamente, un menú de navegación **es** una lista de enlaces, así que se marca como tal aunque visualmente Bootstrap le quite las viñetas (bolitas) con CSS.
 - `ms-lg-auto`: clase de utilidad de Bootstrap = "margin-start auto, solo desde el tamaño `lg` hacia arriba". Esto empuja el menú hacia la derecha en pantallas grandes (en celular, como está apilado, no hace falta).
 - `gap-3 gap-lg-4`: separación entre los elementos del menú (más separación en pantallas grandes que en chicas).
-- `class="nav-link active"` y `aria-current="page"`: `active` es la clase que marca visualmente cuál página es la actual (en `index.html` está en el link "Inicio"; en `productos.html` está en "Productos"; en `carrito.html` está en el ícono del carrito). `aria-current="page"` es el equivalente para accesibilidad: le dice al lector de pantalla "este es el link de la página en la que ya estás".
+- `class="nav-link active"`: `active` es la clase que marca visualmente cuál página es la actual (en `index.html` está en el link "Inicio"; en `productos.html` está en "Productos"; en `carrito.html` está en el ícono del carrito).
 - El ícono 🛒 es un **emoji**, se usa directamente como texto, no como imagen. Al lado va: `<span id="contadorCarrito" class="badge rounded-pill carrito__contador d-none">0</span>`
   - `id="contadorCarrito"`: **este id es clave**, porque es el gancho que usa `global.js` para encontrar este elemento y escribir ahí el número de productos en el carrito (lo vemos a fondo en la sección 5).
   - `badge rounded-pill`: clases de Bootstrap para la forma de "pastillita" numerada.
